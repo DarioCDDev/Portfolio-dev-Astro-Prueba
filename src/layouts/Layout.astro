@@ -1,10 +1,11 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 // Supports weights 100-900
 import "@fontsource-variable/onest";
 interface Props {
   title: string;
-  description: string
+  description: string;
 }
 
 const { title, description } = Astro.props;
@@ -14,21 +15,26 @@ const { title, description } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description}/>
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <div
-      class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
+    <div class="fixed left-0 top-0 -z-10 h-full w-full">
+      <div class="relative h-full w-full bg-slate-950">
+        <div
+          class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"
+        >
+        </div>
+      </div>
     </div>
-    <Header />
-    <slot />
   </body>
 </html>
+<Header />
+<slot />
+<Footer />
 
 <style is:global>
   :root {
@@ -40,13 +46,16 @@ const { title, description } = Astro.props;
   }
 
   body {
-    background: #050505;
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1035%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(14%2c 15%2c 23%2c 1)'%3e%3c/rect%3e%3cpath d='M1231.005%2c589.304C1276.399%2c590.322%2c1321.245%2c567.258%2c1341.588%2c526.665C1360.365%2c489.197%2c1340.707%2c447.873%2c1320.2%2c411.323C1299.049%2c373.625%2c1274.217%2c330.687%2c1231.005%2c329.575C1186.641%2c328.433%2c1154.33%2c367.338%2c1133.486%2c406.518C1114.11%2c442.939%2c1109.272%2c485.493%2c1128.691%2c521.891C1149.296%2c560.512%2c1187.242%2c588.323%2c1231.005%2c589.304' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M755.392%2c159.803C787.357%2c160.484%2c813.025%2c136.992%2c829.446%2c109.559C846.423%2c81.197%2c855.896%2c46.92%2c840.455%2c17.693C824.13%2c-13.206%2c790.338%2c-30.898%2c755.392%2c-30.606C720.941%2c-30.319%2c688.2%2c-11.702%2c672.753%2c19.093C658.574%2c47.359%2c670.594%2c79.249%2c686.608%2c106.517C702.351%2c133.322%2c724.313%2c159.141%2c755.392%2c159.803' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1155.075%2c589.98C1182.838%2c588.882%2c1208.084%2c576.127%2c1223.5%2c553.011C1241.058%2c526.683%2c1253.102%2c493.44%2c1238.003%2c465.628C1222.408%2c436.901%2c1187.749%2c426.07%2c1155.075%2c426.975C1124.089%2c427.833%2c1095.593%2c443.374%2c1079.737%2c470.01C1063.497%2c497.291%2c1059.706%2c531.933%2c1076.591%2c558.82C1092.635%2c584.369%2c1124.93%2c591.172%2c1155.075%2c589.98' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M427.293%2c649.226C458.341%2c649.087%2c488.901%2c634.283%2c503.051%2c606.647C516.243%2c580.883%2c504.288%2c551.876%2c490.039%2c526.681C475.481%2c500.941%2c456.833%2c474.079%2c427.293%2c472.695C395.946%2c471.226%2c369.032%2c493.036%2c353.461%2c520.281C338.02%2c547.3%2c334.884%2c580.326%2c350.347%2c607.332C365.9%2c634.494%2c395.993%2c649.367%2c427.293%2c649.226' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1002.716%2c357.141C1045.156%2c355.511%2c1084.936%2c334.355%2c1105.311%2c297.09C1124.933%2c261.201%2c1117.009%2c219.061%2c1098.018%2c182.834C1077.223%2c143.166%2c1047.492%2c102.424%2c1002.716%2c101.387C956.74%2c100.323%2c922.349%2c138.356%2c899.45%2c178.237C876.67%2c217.912%2c862.63%2c265.908%2c885.501%2c305.531C908.375%2c345.159%2c956.994%2c358.897%2c1002.716%2c357.141' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M715.101%2c115.245C746.654%2c113.302%2c768.512%2c87.787%2c784.746%2c60.661C801.598%2c32.504%2c817.651%2c-0.871%2c801.785%2c-29.596C785.583%2c-58.93%2c748.536%2c-67.692%2c715.101%2c-65.432C685.62%2c-63.439%2c662.44%2c-44.04%2c646.587%2c-19.105C629.122%2c8.365%2c614.04%2c41.262%2c628.828%2c70.261C644.62%2c101.227%2c680.407%2c117.381%2c715.101%2c115.245' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M346.373%2c643.636C395.113%2c642.968%2c433.098%2c605.911%2c456.573%2c563.191C479.059%2c522.269%2c483.393%2c474.291%2c462.324%2c432.622C438.918%2c386.331%2c398.167%2c348.075%2c346.373%2c345.239C289.911%2c342.147%2c232.318%2c368.48%2c206.12%2c418.592C181.335%2c466.002%2c202.52%2c520.881%2c230.816%2c566.283C257.092%2c608.445%2c296.698%2c644.317%2c346.373%2c643.636' fill='rgba(79%2c 0%2c 0%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1035'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e"); */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease; */
   }
 
-  @media(prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
