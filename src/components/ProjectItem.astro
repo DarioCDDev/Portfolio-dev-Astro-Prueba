@@ -1,0 +1,50 @@
+---
+import ProjectPill from "./ProjectPill.astro";
+import WebIcon from "./icons/WebIcon.astro";
+import GitHub from "./icons/GitHub.astro";
+
+interface Props {
+  image: string;
+  title: string;
+  description: string;
+  tags: any;
+  link: string;
+  github: string;
+}
+const { image, title, description, tags, link, github } = Astro.props;
+---
+
+<article class="mb-10">
+  <h3 class="text-2xl font-semibold text-yellow-500">{title}</h3>
+  <div class="flex mb-4">
+    <ProjectPill href="https://github.com/DarioCDDev">
+      <WebIcon class="size-4 lg:size-6" />
+      Sitio Web
+    </ProjectPill>
+    <ProjectPill href="https://github.com/DarioCDDev">
+      <GitHub class="size-4 lg:size-6" />
+      Código de la página
+    </ProjectPill>
+  </div>
+  <p class="text-lg mb-4 text-pretty">{description}</p>
+  <ul class="flex gap-x-2 flex-row mb-4">
+    {
+      tags.map((tag) => (
+        <li>
+          <span
+            class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+          >
+            <tag.icon class="size-4" />
+            {tag.name}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+  <img src="" />
+  <img
+    class="rounded shadow-2xl shadow-white/10"
+    src={image}
+    alt={`Captura de pantalla del poryecto ${title}`}
+  />
+</article>

@@ -18,8 +18,10 @@ import Projects from "@/components/Projects.astro";
   description="Contrata a Darío para crear tu aplicación web o móvil. Desarollador Web. Especializado en crear aplicaciones únicas"
 >
   <main class="px-4">
-    <SectionContainer class="py-44 pb-32">
-      <h1
+    <SectionContainer class="py-32 md:py-44 pb-32" >
+      <div class="flex flex-col items-center md:items-start" id=about>
+        <img class="rounded-full size-48 ml-10 block md:hidden mb-4 md:mb-0" src="/FotoDePerfil.png" />
+        <h1
         class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
       >
         ¡Hola! Soy Dario Chinea Delgado <a
@@ -28,37 +30,42 @@ import Projects from "@/components/Projects.astro";
           rel="noopener"
           class="flex justify-center items-center"
         >
-          <Badge>Disponible para trabajar</Badge>
+          <!-- <Badge>Disponible para trabajar</Badge> -->
         </a>
       </h1>
+      </div>
+      
       <h2 class="text-xl lg:text-2xl text-wrap max-w-[1200px] mb-4">
-        <span>
-          Un apasionado <span class="font-semibold text-blue-300"
-            >desarrollador Full Stack y creador de aplicaciones.</span
-          > que reside en Tenerife, <span class="font-semibold"
-            ><span class="text-red-500">Es</span><span class="text-yellow-400"
-              >pa</span
-            ><span class="text-red-500">ña</span>
-          </span> Mi viaje en el mundo de la tecnología combina habilidades frontend
-          y backend para ofrecer soluciones óptimas.
-          <span class="font-semibold text-blue-300"
-            >¡Bienvenido a mi portafolio, donde mi código cobra vida!</span
-          >
-        </span>
+        <div class="flex items-center">
+          <span>
+            Un apasionado <span class="font-semibold text-blue-300"
+              >desarrollador Full Stack y creador de aplicaciones.</span
+            > que reside en Tenerife, <span class="font-semibold"
+              ><span class="text-red-500">Es</span><span class="text-yellow-400"
+                >pa</span
+              ><span class="text-red-500">ña</span>
+            </span> Mi viaje en el mundo de la tecnología combina habilidades frontend
+            y backend para ofrecer soluciones óptimas.
+            <span class="font-semibold text-blue-300"
+              >¡Bienvenido a mi portafolio, donde mi código cobra vida!</span
+            >
+          </span>
+          <img class="rounded-full size-48 ml-10 hidden md:block" src="/FotoDePerfil.png" />
+        </div>
 
         <nav class="flex gap-4 mt-4 lg:mt-8 flex-wrap">
           <SocialPill
             href="https://www.linkedin.com/in/dar%C3%ADo-chinea-delgado-87156b257/"
           >
-            <LinkedIn class="size-4 md:size-6" />
+            <LinkedIn class="size-6 md:size-6" />
             LinkedIn
           </SocialPill>
           <SocialPill href="https://github.com/DarioCDDev">
-            <GitHub class="size-4 lg:size-6" />
+            <GitHub class="size-6 lg:size-6" />
             Github
           </SocialPill>
           <SocialPill href="mailto:dariocddev@gmail.com">
-            <Mail class="size-4 lg:size-6" />
+            <Mail class="size-6 lg:size-6" />
             dariocddev@gmail.com
           </SocialPill>
         </nav>

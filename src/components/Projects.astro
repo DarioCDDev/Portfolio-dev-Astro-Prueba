@@ -1,54 +1,90 @@
 ---
-import Next from "./icons/Next.astro";
-import Tailwind from "./icons/Tailwind.astro";
+import type { Code, Debug } from "astro:components";
+import ProjectItem from "./ProjectItem.astro";
+import NextIcon from "./icons/NextIcon.astro";
+import TailwindIcon from "./icons/TailwindIcon.astro";
+import JavaIcon from "./icons/JavaIcon.astro"
+import JavaScriptIcon from "./icons/JavaScriptIcon.astro"
+import SpringBootIcon from "./icons/SpringBootIcon.astro"
+import AngularIcon from "./icons/AngularIcon.astro"
+import ReactIcon from "./icons/ReactIcon.astro"
+import AstroIcon from "./icons/AstroIcon.astro"
+import CssIcon from "./icons/CssIcon.astro"
+import HostinguerIcon from "./icons/HostinguerIcon.astro";
 
 const TAGS = {
   NEXT: {
     name: "Next.js",
     class: "bg-black text-white",
-    icon: Next,
+    icon: NextIcon,
   },
   TAILWIND: {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
-    icon: Tailwind,
+    icon: TailwindIcon,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-[#DADADA] text-black",
+    icon: JavaIcon,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-yellow-400 text-black",
+    icon: JavaScriptIcon,
+  },
+  SPRINGBOOT: {
+    name: "Spring Boot",
+    class: "bg-[#1D8D02] text-white",
+    icon: SpringBootIcon,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-[#7900AA] text-white",
+    icon: AngularIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-blue-600 text-white",
+    icon: ReactIcon,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "bg-black text-white",
+    icon: AstroIcon,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#005BAC] text-white",
+    icon: CssIcon,
+  },
+  HOSTINGUER: {
+    name: "Hostinguer",
+    class: "bg-[#6201A1] text-white",
+    icon: HostinguerIcon,
   },
 };
 
 const PROJECTS = [
   {
-    title: "Project 1",
+    title: "MaxMMA",
     description:
-      "This is a project description This is a project description This is a project description This is a project description This is a project descriptionThis is a project description This is a project description",
+      "Descubre el emocionante universo de las Artes Marciales Mixtas con MaxMMA. En nuestra plataforma, encontrarás todo lo relacionado con los eventos más destacados, perfiles detallados de tus peleadores favoritos y las últimas noticias del mundo de las MMA. Únete a nuestra comunidad y sumérgete en un mundo de acción, emoción y camaradería, todo en un solo lugar.",
     link: "https://www.google.com",
     github: "https://www.github.com",
     image: "/projects/svgl.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.ASTRO, TAGS.JAVA, TAGS.SPRINGBOOT, TAGS.CSS],
+  },
+  {
+    title: "Portfolio - React",
+    description:
+      "Este fue el primer portoflio que hice, está hecho en React, lo cual no tiene mucho sentido ya que este portoflio es estático, mejor utilizar Astro 😉",
+    link: "https://dariochdev.com/",
+    github: "https://github.com/DarioCD/Portfolio",
+    image: "/projects/react_project.png",
+    tags: [TAGS.REACT, TAGS.HOSTINGUER, TAGS.JAVASCRIPT, TAGS.CSS],
   },
 ];
 ---
 
-{
-  PROJECTS.map(({ image, title, description, tags, link, github }) => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h3>
-      <p class="text-lg mb-4 text-pretty">{description}</p>
-      <ul class="flex gap-x-2 flex-row mb-2">
-        {tags.map((tag) => (
-          <li>
-            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-              <tag.icon class="size-4" />
-              {tag.name}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img src="" />
-      <img
-        class="rounded shadow-2xl shadow-white/10"
-        src={image}
-        alt={`Captura de pantalla del poryecto ${title}`}
-      />
-    </article>
-  ))
-}
+{PROJECTS.map((project) => <ProjectItem {...project} />)}
