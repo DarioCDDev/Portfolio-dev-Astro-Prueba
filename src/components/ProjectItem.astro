@@ -17,11 +17,11 @@ const { image, title, description, tags, link, github } = Astro.props;
 <article class="mb-10">
   <h3 class="text-2xl font-semibold text-yellow-500">{title}</h3>
   <div class="flex mb-4">
-    <ProjectPill href="https://github.com/DarioCDDev">
+    <ProjectPill href={link}>
       <WebIcon class="size-4 lg:size-6" />
       Sitio Web
     </ProjectPill>
-    <ProjectPill href="https://github.com/DarioCDDev">
+    <ProjectPill href={github}>
       <GitHub class="size-4 lg:size-6" />
       Código de la página
     </ProjectPill>
